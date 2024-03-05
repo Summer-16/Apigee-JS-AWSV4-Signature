@@ -12,20 +12,19 @@
   }
 }(this, function (CryptoJS) {
 
-  function createSignature(params) {
+  function createSignature(signData) {
 
     // Extract the parameters
-    var { request, config } = params;
+    var request = signData.request;
+    var config = signData.config;
 
     // Extract the configuration
-    var {
-      host,
-      uri,
-      accessKey,
-      secretKey,
-      region = "us-east-1",
-      service
-    } = config;
+    var host = config.host;
+    var uri = config.uri;
+    var accessKey = config.accessKey;
+    var secretKey = config.secretKey;
+    var region = config.region;
+    var service = config.service;
 
     // Algorithm used for signing
     var algorithm = 'AWS4-HMAC-SHA256';
@@ -99,5 +98,8 @@
     };
   }
 
-  return { createSignature };
+  return {
+    createSignature: createSignature
+  };
+
 }));

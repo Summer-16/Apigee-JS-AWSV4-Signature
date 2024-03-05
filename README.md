@@ -38,5 +38,6 @@ console.log(signedHeaders);
 ```
 
 ### For Apigee proxy example check the `example` folder.
+Import the proxy into your Apigee Edge or Apigee X environment and add JS resources from src directory and test.
 
 Note: The implementation uses the `var` keyword for defining variables. If you are using this in a modern environment, you can replace `var` with `let` or `const` as per your requirement. I have used `var` for compatibility with Apigee environment.

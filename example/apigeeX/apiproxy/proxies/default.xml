@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <FaultRules />
+  <DefaultFaultRule name="default-fault-rule">
+    <Step>
+      <Name>AM-ErrorResponse</Name>
+    </Step>
+    <AlwaysEnforce>true</AlwaysEnforce>
+  </DefaultFaultRule>
+  <PreFlow name="PreFlow">
+    <Request />
+    <Response />
+  </PreFlow>
+  <Flows>
+    <Flow name="sendDataOnSQS">
+      <Description>Send the received data on SQS.</Description>
+      <Request>
+        <Step>
+          <Name>JS-Helper</Name>
+        </Step>
+        <Step>
+          <Name>SC-SQS</Name>
+        </Step>
+      </Request>
+      <Response>
+        <Step>
+          <Name>AM-Response</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix MatchesPath "/sendMessage") and (request.verb = "POST")</Condition>
+    </Flow>
+  </Flows>
+  <PostFlow name="PostFlow">
+    <Request>
+    </Request>
+    <Response>
+    </Response>
+  </PostFlow>
+  <HTTPProxyConnection>
+    <BasePath>/awsSignTest</BasePath>
+    <Properties />
+    <VirtualHost>secure</VirtualHost>
+  </HTTPProxyConnection>
+  <RouteRule name="NoRouteRule" />
+</ProxyEndpoint>

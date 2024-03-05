@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="SC-SQS">
+  <DisplayName>SC-SQS</DisplayName>
+  <Properties/>
+  <Request clearPayload="true" variable="myRequest">
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Set>
+      <Verb>GET</Verb>
+      <Headers>
+        <Header name="X-Amz-Date">{amzDate}</Header>
+        <Header name="Authorization">{amzAuthorization}</Header>
+        <Header name="Host">{amzHost}</Header>
+        <Header name="accept">application/json</Header>
+      </Headers>
+      <QueryParams>
+        <QueryParam name="Action">SendMessage</QueryParam>
+        <QueryParam name="MessageBody">{requestContent}</QueryParam>
+      </QueryParams>
+    </Set>
+  </Request>
+  <Response>calloutResponse</Response>
+  <HTTPTargetConnection>
+    <URL>https://{sqsHost}{sqsURI}</URL>
+  </HTTPTargetConnection>
+</ServiceCallout>

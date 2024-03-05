@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript continueOnError="false" enabled="true" timeLimit="200" name="JS-Helper">
+  <DisplayName>JS-Helper</DisplayName>
+  <Properties />
+  <!-- Add these resources to the API Proxy from the src directory of the project.  -->
+  <IncludeURL>jsc://sha256.js</IncludeURL>
+  <IncludeURL>jsc://hmac-sha256.js</IncludeURL>
+  <IncludeURL>jsc://awsSignV4Apigee.js</IncludeURL>
+  <ResourceURL>jsc://helper.js</ResourceURL>
+</Javascript>

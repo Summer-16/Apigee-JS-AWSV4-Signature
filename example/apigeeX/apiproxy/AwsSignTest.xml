@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="29" name="AwsSignTest">
+  <DisplayName>AwsSignTest</DisplayName>
+  <Description />
+  <CreatedAt>1709577088680</CreatedAt>
+  <LastModifiedAt>1709577088680</LastModifiedAt>
+  <BasePaths>/awsSignTest</BasePaths>
+  <Policies>
+    <Policy>AM-Response</Policy>
+    <Policy>AM-ErrorResponse</Policy>
+    <Policy>SC-SQS</Policy>
+    <Policy>JS-Helper</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://helper.js</Resource>
+    <Resource>jsc://sha256.js</Resource>
+    <Resource>jsc://hmac-sha256.js</Resource>
+    <Resource>jsc://awsSignV4Apigee.js</Resource>
+  </Resources>
+</APIProxy>

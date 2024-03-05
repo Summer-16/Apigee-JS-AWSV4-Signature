@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-ErrorResponse" continueOnError="true">
+  <Set>
+    <Headers>
+      <Header name="APIProxy">{apiproxy.name} r{apiproxy.revision}</Header>
+    </Headers>
+    <Payload contentType="application/json" variablePrefix="$" variableSuffix="#">
+      {
+      "status" : "Error",
+      "callOutResponse" : "$ServiceCallout.response#",
+      "requestContentString" : "$requestContentString#",
+      "signedRequestString" : "$signedRequestString#",
+      }
+    </Payload>
+  </Set>
+</AssignMessage>
